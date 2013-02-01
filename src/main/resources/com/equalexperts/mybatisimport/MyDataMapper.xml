@@ -7,4 +7,8 @@
     <select id="selectMyData" parameterType="int" resultType="MyData">
       select * from my_data where id = #{id}
     </select>
+
+    <select id="selectAll" resultType="MyData">
+        select * from my_data
+    </select>
 </mapper>

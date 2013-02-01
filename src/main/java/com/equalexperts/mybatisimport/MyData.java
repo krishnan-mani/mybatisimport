@@ -20,4 +20,10 @@ public class MyData {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return String.format("MyData with id: %d, name: %s", id, name);
+    }
+
 }
