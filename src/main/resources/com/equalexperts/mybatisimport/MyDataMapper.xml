@@ -11,4 +11,14 @@
     <select id="selectAll" resultType="MyData">
         select * from my_data
     </select>
+
+    <select id="selectAllUsingResultMap" resultMap="myDataResultMap">
+        select * from my_data
+    </select>
+
+    <resultMap type="MyData" id="myDataResultMap">
+        <id column="id" jdbcType="INTEGER" javaType="java.lang.Integer" property="id" />
+        <result column="name" jdbcType="VARCHAR" javaType="java.lang.String" property="name" />
+    </resultMap>
+
 </mapper>

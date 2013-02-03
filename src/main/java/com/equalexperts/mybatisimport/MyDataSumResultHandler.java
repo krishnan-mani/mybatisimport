@@ -7,6 +7,7 @@ public class MyDataSumResultHandler implements ResultHandler {
 
     private int sum = 0;
     private int count = 0;
+    private boolean debug = false;
 
     public MyDataSumResultHandler(int count) {
         this.count = count;
@@ -15,7 +16,9 @@ public class MyDataSumResultHandler implements ResultHandler {
     @Override
     public void handleResult(ResultContext resultContext) {
         MyData data = (MyData) resultContext.getResultObject();
-        System.out.println(data.toString());
+        if (debug) {
+            System.out.println(data.toString());
+        }
         sum += data.getId();
     }
 

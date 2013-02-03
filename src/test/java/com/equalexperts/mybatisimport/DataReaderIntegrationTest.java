@@ -26,7 +26,7 @@ public class DataReaderIntegrationTest {
     }
 
     @Test
-    public void passDataToHandlerTest() throws IOException {
+    public void passDataToHandler() throws IOException {
         DataReader reader = new DataReader();
         String statementSelector = "selectAll";
         int count = 100000;
@@ -34,4 +34,15 @@ public class DataReaderIntegrationTest {
         reader.passDataToHandler("selectAll", handler);
         assertThat(handler.getSum(), is(((count)*(count + 1))/2));
     }
+
+    @Test
+    public void passDataToHandlerUsingResultMap() throws IOException {
+        DataReader reader = new DataReader();
+        String statementSelector = "selectAll";
+        int count = 100000;
+        MyDataSumResultHandler handler = new MyDataSumResultHandler(count);
+        reader.passDataToHandler("selectAllUsingResultMap", handler);
+        assertThat(handler.getSum(), is(((count)*(count + 1))/2));
+    }
+
 }
